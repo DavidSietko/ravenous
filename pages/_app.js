@@ -1,5 +1,8 @@
-import "@/styles/globals.css";
+import React from 'react';
+import '../styles/globals.css'; // Global CSS file (you can add your CSS here)
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
+
+export default App;

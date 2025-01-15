@@ -1,34 +1,72 @@
 .business {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    max-width: 300px;
-    height: 10%;
-    border:  #ddd;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    background-color: #fff;
+  display: flex;
+  flex-direction: column; /* Overall layout is vertical */
+  width: 500px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: #fff;
 }
+
 .business img {
-    width: 300px;
-    height: 300px;
-    margin-right: 20px;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 10px;
 }
+
 .business .name {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.business .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.businessInfo,
+.businessDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column; 
+}
+
+.businessDetails {
+  text-align: right;
+}
   
-  .business .businessInfo,
-  .business .businessDetails {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .business .address {
-    font-style: italic;
-  }
-  
-  .business .rating {
-    color: #f5a623;
-  }
+.business .address {
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.business .city {
+  font-size: 1.3rem;
+  color: #3f3f3f;
+}
+
+.business .zipCode {
+  font-size: 1.3rem;
+  color: #3f3f3f;
+}
+
+.business .rating {
+  font-size: 1.2rem;
+  color: #f5a623;
+}
+
+.business .category {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #f5a623;
+}
+
+.business .reviewCount {
+  font-size: 1.2rem;
+  color: #3f3f3f;
+}

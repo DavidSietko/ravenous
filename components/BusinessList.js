@@ -1,9 +1,10 @@
 import React from "react";
 import Business from "./Business";
+import styles from '../styles/BusinessList.module.css'
 
 export default function BusinessList({ businesses }) {
     return (
-        <div>
+        <div className={styles.businessList}>
             {businesses.map((business, index) => (
                 <Business
                     key={index} 

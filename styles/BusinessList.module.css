@@ -1,0 +1,14 @@
+.businessList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10%;
+    margin: 20px auto;
+    margin-top: 50px;
+    width: 90%;
+}
+.businessList .business {
+    flex : 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
+    box-sizing: border-box;
+}

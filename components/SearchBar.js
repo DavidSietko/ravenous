@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import styles from '../styles/SearchBar.module.css';
 
 export default function SearchBar( {onSearch} ) {
     // create states for term and location for searching, also the sorting
@@ -23,8 +24,8 @@ export default function SearchBar( {onSearch} ) {
         }
     };
     return (
-        <div>
-            <div className="sortButtons">
+        <div className={styles.searchBar}>
+            <div className={styles.sortButtons}>
                 <button className={sortBy === "best_match" ? "active" : ""} onClick={() => handleSortClick("best_match")}>
                     Best Match
                 </button>
@@ -35,9 +36,11 @@ export default function SearchBar( {onSearch} ) {
                     Most Reviewed
                 </button>
             </div>
-            <input type="text" placeholder="Search business" value={term} onChange={handleTermChange}/>
-            <input type="text" placeholder="Location" value={location} onChange={handleLocationChange}/>
-            <button onClick={handleSearch}>
+            <div className={styles.searchingBars}>
+                <input type="text" placeholder="Search business" value={term} onChange={handleTermChange}/>
+                <input type="text" placeholder="Location" value={location} onChange={handleLocationChange}/>
+            </div>
+            <button className={styles.searchButton} onClick={handleSearch}>
                 Let's Go
             </button>
         </div>
