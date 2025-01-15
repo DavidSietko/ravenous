@@ -2,8 +2,9 @@ import React from 'react';
 import Business from '@/components/Business';
 import BusinessList from '@/components/BusinessList';
 import SearchBar from '@/components/SearchBar';
+import styles from '../styles/Home.module.css';
 
-export default function App({ Component, pageProps }) {
+export default function Home({ Component, pageProps }) {
   const sampleBusiness = {
       image: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
       name: 'MarginOtto Pizzeria',
@@ -16,7 +17,7 @@ export default function App({ Component, pageProps }) {
       reviewCount: 90
     };
     const businesses = [];
-    for(let i = 0; i < 3; i++) {
+    for(let i = 0; i < 8; i++) {
       businesses.push(sampleBusiness);
     }
     function onSearch() {
@@ -25,7 +26,7 @@ export default function App({ Component, pageProps }) {
   
     return (
       <div>
-        <header>Ravenous</header>
+        <header className={styles.header}>Ravenous</header>
         <SearchBar
         onSearch={onSearch} />
         <BusinessList
