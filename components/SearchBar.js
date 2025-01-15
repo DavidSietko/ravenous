@@ -26,13 +26,13 @@ export default function SearchBar( {onSearch} ) {
     return (
         <div className={styles.searchBar}>
             <div className={styles.sortButtons}>
-                <button className={sortBy === "best_match" ? "active" : ""} onClick={() => handleSortClick("best_match")}>
+                <button className={sortBy === "best_match" ? styles.active : ""} onClick={() => handleSortClick("best_match")}>
                     Best Match
                 </button>
-                <button className={sortBy === "rating" ? "active" : ""} onClick={() => handleSortClick("rating")}>
+                <button className={sortBy === "rating" ? styles.active : ""} onClick={() => handleSortClick("rating")}>
                     Highest Rated
                 </button>
-                <button className={sortBy === "review_count" ? "active" : ""} onClick={() => handleSortClick("review_count")}>
+                <button className={sortBy === "review_count" ? styles.active : ""} onClick={() => handleSortClick("review_count")}>
                     Most Reviewed
                 </button>
             </div>
