@@ -1,27 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Business from '@/components/Business';
 import BusinessList from '@/components/BusinessList';
 import SearchBar from '@/components/SearchBar';
 import styles from '../styles/Home.module.css';
+import yelp from '../utils/yelpApi.js';
 
 export default function Home({ Component, pageProps }) {
-  const sampleBusiness = {
-      image: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
-      name: 'MarginOtto Pizzeria',
-      address: '1010 Paddington Way',
-      city: 'Flavortown',
-      state: 'NY',
-      zipCode: '10101',
-      category: 'Italian',
-      rating: 4.5,
-      reviewCount: 90
-    };
-    const businesses = [];
-    for(let i = 0; i < 8; i++) {
-      businesses.push(sampleBusiness);
-    }
-    function onSearch() {
-  
+    const [businesses, setBusinesses] = useState([]);
+
+    useEffect(() => {
+      const fetchInitialBusinesses = async () => {
+        try {
+          const firstBusinesses = await yelp("restaurants", "New York", "best_match", []);
+          console.log("Initial Businesses:", firstBusinesses); // Debugging
+          setBusinesses(firstBusinesses);
+        } catch (error) {
+          console.error("Failed to fetch initial businesses:", error);
+        }
+      };
+      fetchInitialBusinesses();
+    }, []);
+
+    const onSearch = async({term, location, sortBy}) => {
+      console.log(`${term} ${location}, ${sortBy}`);
+      const searchedBusiness = await yelp(term, location, sortBy, businesses);
+      console.log(searchedBusiness);
+      setBusinesses(searchedBusiness);
     };
   
     return (
