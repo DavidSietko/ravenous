@@ -12,7 +12,6 @@ export default function Home({ Component, pageProps }) {
       const fetchInitialBusinesses = async () => {
         try {
           const firstBusinesses = await yelp("restaurants", "New York", "best_match", []);
-          console.log("Initial Businesses:", firstBusinesses); // Debugging
           setBusinesses(firstBusinesses);
         } catch (error) {
           console.error("Failed to fetch initial businesses:", error);
@@ -24,7 +23,6 @@ export default function Home({ Component, pageProps }) {
     const onSearch = async({term, location, sortBy}) => {
       console.log(`${term} ${location}, ${sortBy}`);
       const searchedBusiness = await yelp(term, location, sortBy, businesses);
-      console.log(searchedBusiness);
       setBusinesses(searchedBusiness);
     };
   

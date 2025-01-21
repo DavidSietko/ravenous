@@ -11,12 +11,6 @@ const yelp = async(term, location, sortBy, existingBusinessList) => {
                 Authorization: `Bearer ${apiKey}`
             } 
         });
-        console.log('Fetching from:', urlToFetch);
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            console.error('Error from Yelp API:', errorData);
-        }
 
         if(response.ok) {
             const jsonResponse = await response.json();
