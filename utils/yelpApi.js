@@ -5,12 +5,17 @@ const yelp = async(term, location, sortBy, existingBusinessList) => {
     const url = "https://api.yelp.com/v3/businesses/search";
     const endpoint = `?term=${term}&location=${location}&sort_by=${sortBy}`;
     const urlToFetch = url + endpoint;
+    console.log("TRYING TO PERFORM SEARCH");
     try {
         const response = await fetch(urlToFetch, {
             headers: {
                 Authorization: `Bearer ${apiKey}`
             } 
         });
+
+        if(!response.ok) {
+            throw new Error("Invalid Search. Check your spelling on Location or Business!");
+        }
 
         if(response.ok) {
             const jsonResponse = await response.json();

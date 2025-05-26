@@ -22,6 +22,9 @@ export default function SearchBar( {onSearch} ) {
         if(term.trim() && location.trim()) {
             onSearch({term, location, sortBy});
         }
+        else {
+            alert("Please search by a location and business!");
+        }
     };
     return (
         <div className={styles.searchBar}>
@@ -40,9 +43,7 @@ export default function SearchBar( {onSearch} ) {
                 <input type="text" placeholder="Search business" value={term} onChange={handleTermChange}/>
                 <input type="text" placeholder="Location" value={location} onChange={handleLocationChange}/>
             </div>
-            <button className={styles.searchButton} onClick={handleSearch}>
-                Let's Go
-            </button>
+            <button className={styles.searchButton} onClick={() => handleSearch()}>Let's Go</button>
         </div>
     );
 }

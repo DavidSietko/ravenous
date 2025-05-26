@@ -11,7 +11,8 @@ export default function Home({ Component, pageProps }) {
     useEffect(() => {
       const fetchInitialBusinesses = async () => {
         try {
-          const firstBusinesses = await yelp("restaurants", "New York", "best_match", []);
+          alert("First fetch");
+          const firstBusinesses = await yelp("restaurants", "China", "best_match", businesses);
           setBusinesses(firstBusinesses);
         } catch (error) {
           console.error("Failed to fetch initial businesses:", error);
