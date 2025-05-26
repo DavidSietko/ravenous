@@ -11,7 +11,6 @@ export default function Home({ Component, pageProps }) {
     useEffect(() => {
       const fetchInitialBusinesses = async () => {
         try {
-          alert("First fetch");
           const firstBusinesses = await yelp("restaurants", "China", "best_match", businesses);
           setBusinesses(firstBusinesses);
         } catch (error) {
